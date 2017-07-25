@@ -16,23 +16,22 @@ int main() {
 }
 
 int goaldiff(int n) {
-	long long int goal[n],i,j;
-	int maxdiff=-1;
-	for(i=0;i<n;i++) {
-		scanf("%lld",&goal[i]);
-	}
-	for(i=0;i<n;i++) {
-		for(j=i;j<n;j++) {
-			if ((goal[j] > goal[i]) && ((goal[j]-goal[i]) > maxdiff)) {
-				maxdiff = goal[j]-goal[i];
-			}				
+	int lowest,i,num,diff=0;
+	scanf("%d",&lowest);
+	for(i=1;i<n;i++) {
+		scanf("%d",&num);
+		if(num <lowest) {
+			lowest=num;
+		} else if(num-lowest > diff) {
+			diff = num-lowest;
 		}
 	}
-	return maxdiff;
+	return diff;
+	
 }
 
 void print(int maxdiff) {
-	if(maxdiff < 0) {
+	if(maxdiff <= 0) {
 		printf("UNFIT\n");
 	}else{
 		printf("%lld\n",maxdiff);
