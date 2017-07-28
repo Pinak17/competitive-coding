@@ -3,10 +3,10 @@
 
 using namespace std;
 
-long long int meatball(long long int n, long long int m);
+unsigned long long int meatball(unsigned long long int n, unsigned long long int m);
 
 int main() {
-	long long int test,n,m,ans;
+	unsigned long long int test,n,m,ans;
 	cin>>test;
 	while(test--){
 		cin>>n>>m;
@@ -16,8 +16,8 @@ int main() {
 	return 0;
 }
 
-long long int meatball(int n, int m) {
-	long long int plate[n],i,ans=0,sum=0;
+unsigned long long int meatball(unsigned long long int n,unsigned long long int m) {
+	unsigned long long int plate[n],i,ans=0,sum=0;
 	for(i=0;i<n;i++) {
 		cin>>plate[i];
 	}
