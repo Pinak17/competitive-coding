@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 
@@ -26,7 +27,7 @@ unsigned long long int meatball(unsigned long long int n,unsigned long long int 
 		if(m==0) {
 			break;
 		}
-		sum=sum+plate[i];
+		sum=((sum%pow(10.0,18.0))+(plate[i]%pow(10.0,18.0))%pow(10.0,18.0));
 		ans++;
 		if(sum>=m) {
 			break;
