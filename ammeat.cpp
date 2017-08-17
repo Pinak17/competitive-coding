@@ -1,13 +1,14 @@
 #include <iostream>
 #include <algorithm>
+#include <vector>
 #include <cmath>
 
 using namespace std;
 
-unsigned long long int meatball(unsigned long long int n, unsigned long long int m);
+int meatball(long long int n, long long int m);
 
 int main() {
-	unsigned long long int test,n,m,ans;
+	long long int test,n,m,ans;
 	cin>>test;
 	while(test--){
 		cin>>n>>m;
@@ -17,26 +18,23 @@ int main() {
 	return 0;
 }
 
-unsigned long long int meatball(unsigned long long int n,unsigned long long int m) {
-	unsigned long long int plate[n],i,ans=0,sum=0;
+int meatball(long long int n, long long int m) {
+	vector<long long int> plate;
+	long long int meatBalls,i,ans=0,sum=0;
 	for(i=0;i<n;i++) {
-		cin>>plate[i];
+		cin>>meatBalls;
+		plate.push_back(meatBalls);
 	}
-	sort(plate,plate+n,greater<int>());
-	for(i=0;i<n;i++) {
-		if(m==0) {
-			break;
-		}
-		sum=((sum%pow(10.0,18.0))+(plate[i]%pow(10.0,18.0))%pow(10.0,18.0));
+	sort(plate.rbegin(),plate.rend());
+	for(vector<long long int>::iterator it=plate.begin();it!=plate.end();++it){
+		sum=sum+*it;
 		ans++;
-		if(sum>=m) {
+		if(sum>=m){
 			break;
-		}
-		if(i==(n-1)) {
-			sum<m;
-			ans=-1;
-			break;
-		}
+		}	 
 	}
-	return ans;
+	if(sum>=m)
+		return ans;
+	else 
+		return -1;
 }
